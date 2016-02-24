@@ -3,12 +3,11 @@
 //
 // Distributed under the "BSD License". See the accompanying LICENSE.rst file.
 
-#pragma once
-
-
 /// @file storage.hpp This implementation was inspired by the
 /// boost::asio buffer.h as a way of providing an abstraction for
 /// storage / buffers.
+
+#pragma once
 
 #include <cstdint>
 #include <cassert>

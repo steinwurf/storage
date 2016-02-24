@@ -8,8 +8,8 @@ import waflib.extras.wurf_options
 
 
 def options(opt):
-    opt.load('wurf_common_tools')
 
+    opt.load('wurf_common_tools')
 
 
 def resolve(ctx):
@@ -43,8 +43,7 @@ def build(bld):
 
     bld.env.append_unique(
         'DEFINES_STEINWURF_VERSION',
-        'STEINWURF_STORAGE_VERSION="{}"'.format(
-            VERSION))
+        'STEINWURF_STORAGE_VERSION="{}"'.format(VERSION))
 
     bld.recurse('src/storage')
 
