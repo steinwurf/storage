@@ -8,8 +8,8 @@ import waflib.extras.wurf_options
 
 
 def options(opt):
-
     opt.load('wurf_common_tools')
+
 
 
 def resolve(ctx):
@@ -49,8 +49,6 @@ def build(bld):
     bld.recurse('src/storage')
 
     if bld.is_toplevel():
-
         # Only build tests when executed from the top-level wscript,
         # i.e. not when included as a dependency
         bld.recurse('test')
-#        bld.recurse('examples')

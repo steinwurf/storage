@@ -1,7 +1,0 @@
-# encoding: utf-8
-
-bld.program(
-    features='cxx',
-    source=['example.cpp'],
-    target='example',
-    use=['storage'])
