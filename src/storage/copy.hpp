@@ -18,8 +18,8 @@ namespace storage
     {
         assert(dest.m_size > 0);
         assert(dest.m_size >= src.m_size);
-        assert(dest.m_data != 0);
-        assert(src.m_data != 0);
+        assert(dest.m_data != nullptr);
+        assert(src.m_data != nullptr);
 
         // Do not perform a copy if the two buffers are the same
         if (dest.m_data == src.m_data) return;

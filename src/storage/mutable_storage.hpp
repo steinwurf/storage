@@ -15,14 +15,14 @@ namespace storage
     struct mutable_storage
     {
         /// The value type used by the iterator
-        typedef mutable_storage value_type;
+        using value_type = mutable_storage;
 
         /// The iterator type
-        typedef const mutable_storage* const_iterator;
+        using const_iterator = const mutable_storage*;
 
         /// Create an empty storage object
         mutable_storage() :
-            m_data(0),
+            m_data(nullptr),
             m_size(0)
         { }
 
@@ -33,7 +33,7 @@ namespace storage
             m_data(data),
             m_size(size)
         {
-            assert(m_data != 0);
+            assert(m_data != nullptr);
             assert(m_size > 0);
         }
 

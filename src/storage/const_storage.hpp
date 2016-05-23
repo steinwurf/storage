@@ -17,14 +17,14 @@ namespace storage
     struct const_storage
     {
         /// The value type used by iterators
-        typedef const_storage value_type;
+        using value_type = const_storage;
 
         /// The iterator type
-        typedef const const_storage* const_iterator;
+        using const_iterator = const const_storage*;
 
         /// Create an empty storage object
         const_storage() :
-            m_data(0),
+            m_data(nullptr),
             m_size(0)
         { }
 
