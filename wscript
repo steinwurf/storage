@@ -45,7 +45,9 @@ def build(bld):
         'DEFINES_STEINWURF_VERSION',
         'STEINWURF_STORAGE_VERSION="{}"'.format(VERSION))
 
-    bld.recurse('src/storage')
+    bld(name='storage_includes',
+        includes='./src',
+        export_includes='./src')
 
     if bld.is_toplevel():
         # Only build tests when executed from the top-level wscript,
