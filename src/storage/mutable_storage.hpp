@@ -52,6 +52,7 @@ namespace storage
         }
 
         /// Offset the storage
+        /// @param offset The number of bytes to offset the storage with
         mutable_storage& operator+=(uint32_t offset)
         {
             assert(offset <= m_size);
@@ -61,6 +62,7 @@ namespace storage
         }
 
         /// Offset the storage
+        /// @param offset The number of bytes to offset the storage with
         mutable_storage operator+(uint32_t offset)
         {
             assert(offset <= m_size);

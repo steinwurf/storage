@@ -14,6 +14,8 @@
 namespace storage
 {
     /// Copies the source storage into the destination storage buffer
+    /// @param dest The destination buffer
+    /// @param src The source buffer
     inline void copy(const mutable_storage& dest, const const_storage& src)
     {
         assert(dest.m_size > 0);
