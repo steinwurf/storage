@@ -3,10 +3,6 @@
 //
 // Distributed under the "BSD License". See the accompanying LICENSE.rst file.
 
-/// @file storage.hpp This implementation was inspired by the
-/// boost::asio buffer.h as a way of providing an abstraction for
-/// storage / buffers.
-
 #pragma once
 
 #include "mutable_storage.hpp"
