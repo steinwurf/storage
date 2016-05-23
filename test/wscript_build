@@ -4,4 +4,4 @@ bld.program(
     features='cxx test',
     source=['storage_tests.cpp'] + bld.path.ant_glob('src/*.cpp'),
     target='storage_tests',
-    use=['storage', 'gtest'])
+    use=['storage_includes', 'gtest'])
