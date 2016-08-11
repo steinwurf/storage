@@ -38,3 +38,18 @@ TEST(test_const_storage, test_offset_storage)
     EXPECT_EQ(new_storage.m_size, 300U);
     EXPECT_EQ(new_storage.m_data, &v[200]);
 }
+
+TEST(test_const_storage, test_operator_equal)
+{
+    uint32_t size = 100;
+    std::vector<uint8_t> a(size);
+    std::vector<uint8_t> b(size-1);
+
+    std::generate(std::begin(a), std::end(a), rand);
+    std::generate(std::begin(b), std::end(b), rand);
+
+    EXPECT_TRUE(storage::storage(a) == storage::storage(a));
+    EXPECT_TRUE(storage::storage(b) == storage::storage(b));
+    EXPECT_FALSE(storage::storage(a) == storage::storage(b));
+
+}

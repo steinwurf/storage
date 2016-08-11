@@ -21,6 +21,22 @@ namespace storage
     ///         otherwise false.
     inline bool is_equal(const const_storage& a, const const_storage& b)
     {
-        return a == b;
+        // We cannot reuse is_same here since it does not tell use
+        // which condition failed i.e. if is_same returns false. Then
+        // we cannot just jump to a memory compare since it might be
+        // because the two storage objects have different sizes.
+        if (a.m_size != b.m_size)
+        {
+            return false;
+        }
+
+        // They have the same size - do they point to the same data?
+        if (a.m_data == b.m_data)
+        {
+            return true;
+        }
+
+        // It is two different buffers - is the content equal?
+        return std::equal(a.m_data, a.m_data + a.m_size, b.m_data);
     }
 }
