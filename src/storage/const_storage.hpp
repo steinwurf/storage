@@ -9,7 +9,6 @@
 
 #include <cstdint>
 #include <cassert>
-#include <algorithm>
 
 namespace storage
 {

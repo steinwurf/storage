@@ -7,6 +7,8 @@
 
 #include "const_storage.hpp"
 
+#include <algorithm>
+
 namespace storage
 {
     /// Compares two storage objects to see whether they are
