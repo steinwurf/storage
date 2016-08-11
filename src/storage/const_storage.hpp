@@ -87,10 +87,13 @@ namespace storage
             return storage;
         }
 
+    public:
+
         /// Pointer to the non-mutable buffer storage
         const uint8_t* m_data;
 
         /// The size of the mutable buffer
         uint32_t m_size;
+
     };
 }
