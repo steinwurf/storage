@@ -6,6 +6,10 @@ every change, see the Git log.
 
 Latest
 ------
+* tbd
+
+2.1.0
+-----
 * Minor: Adding operator==(...) to allow using algorithms that compare stuff
   that way.
 
