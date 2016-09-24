@@ -13,19 +13,19 @@
 
 namespace storage
 {
-    /// Copies the source storage into the destination storage buffer
-    /// @param dest The destination buffer
-    /// @param src The source buffer
-    inline void copy(const mutable_storage& dest, const const_storage& src)
-    {
-        assert(dest.m_size > 0);
-        assert(dest.m_size >= src.m_size);
-        assert(dest.m_data != nullptr);
-        assert(src.m_data != nullptr);
+/// Copies the source storage into the destination storage buffer
+/// @param dest The destination buffer
+/// @param src The source buffer
+inline void copy(const mutable_storage& dest, const const_storage& src)
+{
+    assert(dest.m_size > 0);
+    assert(dest.m_size >= src.m_size);
+    assert(dest.m_data != nullptr);
+    assert(src.m_data != nullptr);
 
-        // Do not perform a copy if the two buffers are the same
-        if (dest.m_data == src.m_data) return;
+    // Do not perform a copy if the two buffers are the same
+    if (dest.m_data == src.m_data) return;
 
-        std::copy(src.m_data, src.m_data + src.m_size, dest.m_data);
-    }
+    std::copy(src.m_data, src.m_data + src.m_size, dest.m_data);
+}
 }

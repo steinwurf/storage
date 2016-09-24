@@ -10,21 +10,21 @@
 
 namespace storage
 {
-    /// Casts the stored pointer to a different data type
-    /// @param s the storage adapter
-    /// @return pointer to the requested storage data type
-    template<class ValueType>
-    inline ValueType* cast(const mutable_storage& s)
-    {
-        return reinterpret_cast<ValueType*>(s.m_data);
-    }
+/// Casts the stored pointer to a different data type
+/// @param s the storage adapter
+/// @return pointer to the requested storage data type
+template<class ValueType>
+inline ValueType* cast(const mutable_storage& s)
+{
+    return reinterpret_cast<ValueType*>(s.m_data);
+}
 
-    /// Casts the stored pointer to a different data type
-    /// @param s the storage adapter
-    /// @return pointer to the requested storage data type
-    template<class ValueType>
-    inline const ValueType* cast(const const_storage& s)
-    {
-        return reinterpret_cast<const ValueType*>(s.m_data);
-    }
+/// Casts the stored pointer to a different data type
+/// @param s the storage adapter
+/// @return pointer to the requested storage data type
+template<class ValueType>
+inline const ValueType* cast(const const_storage& s)
+{
+    return reinterpret_cast<const ValueType*>(s.m_data);
+}
 }

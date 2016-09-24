@@ -9,19 +9,19 @@
 
 namespace storage
 {
-    /// Returns the size of all the buffers in a storage sequence
-    /// @param first iterator to the first storage adapter
-    /// @param last iterator to the last storage adapter
-    /// @return the size in bytes of the storage adapters
-    template<class Iterator>
-    inline uint32_t size(Iterator first, Iterator last)
+/// Returns the size of all the buffers in a storage sequence
+/// @param first iterator to the first storage adapter
+/// @param last iterator to the last storage adapter
+/// @return the size in bytes of the storage adapters
+template<class Iterator>
+inline uint32_t size(Iterator first, Iterator last)
+{
+    uint32_t size = 0;
+    while (first != last)
     {
-        uint32_t size = 0;
-        while (first != last)
-        {
-            size += first->m_size;
-            ++first;
-        }
-        return size;
+        size += first->m_size;
+        ++first;
     }
+    return size;
+}
 }
