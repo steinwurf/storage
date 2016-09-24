@@ -11,10 +11,10 @@
 
 namespace storage
 {
-    /// Zero the data buffer of a mutable storage object
-    /// @param storage the mutable storage buffer
-    inline void fill_zero(const mutable_storage& storage)
-    {
-        std::fill_n(storage.m_data, storage.m_size, 0);
-    }
+/// Zero the data buffer of a mutable storage object
+/// @param storage the mutable storage buffer
+inline void fill_zero(const mutable_storage& storage)
+{
+    std::fill_n(storage.m_data, storage.m_size, 0);
+}
 }
