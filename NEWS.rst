@@ -8,6 +8,11 @@ Latest
 ------
 * tbd
 
+3.0.0
+-----
+* Major: Upgrade to waf-tools 4
+* Minor: Upgrade to gtest 4
+
 2.1.0
 -----
 * Minor: Adding operator==(...) to allow using algorithms that compare stuff
