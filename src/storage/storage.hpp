@@ -20,6 +20,7 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include <array>
 
 namespace storage
 {
@@ -50,7 +51,7 @@ template<class PodType, class Allocator>
 inline mutable_storage storage(std::vector<PodType, Allocator>& v)
 {
     uint32_t size = static_cast<uint32_t>(v.size() * sizeof(PodType));
-    uint8_t* data = reinterpret_cast<uint8_t*>(&v[0]);
+    uint8_t* data = reinterpret_cast<uint8_t*>(v.data());
 
     return mutable_storage(data, size);
 }
@@ -61,8 +62,8 @@ inline mutable_storage storage(std::vector<PodType, Allocator>& v)
 template<class PodType, class Allocator>
 inline const_storage storage(const std::vector<PodType, Allocator>& v)
 {
-    uint32_t size = uint32_t(v.size() * sizeof(PodType));
-    const uint8_t* data = reinterpret_cast<const uint8_t*>(&v[0]);
+    uint32_t size = static_cast<uint32_t>(v.size() * sizeof(PodType));
+    const uint8_t* data = reinterpret_cast<const uint8_t*>(v.data());
 
     return const_storage(data, size);
 }
@@ -76,7 +77,7 @@ const_storage storage(std::vector<PodType, Allocator>&&) = delete;
 /// @return the storage adapter
 inline mutable_storage storage(std::string& str)
 {
-    uint32_t size = (uint32_t)str.size();
+    uint32_t size = static_cast<uint32_t>(str.size());
     uint8_t* data = reinterpret_cast<uint8_t*>(&str[0]);
 
     return mutable_storage(data, size);
@@ -87,7 +88,7 @@ inline mutable_storage storage(std::string& str)
 /// @return the storage adapter
 inline const_storage storage(const std::string& str)
 {
-    uint32_t size = (uint32_t)str.size();
+    uint32_t size = static_cast<uint32_t>(str.size());
     const uint8_t* data = reinterpret_cast<const uint8_t*>(str.data());
 
     return const_storage(data, size);
@@ -95,4 +96,32 @@ inline const_storage storage(const std::string& str)
 
 /// We do not allow conversion of temporaries
 const_storage storage(std::string&&) = delete;
+
+/// Creates a mutable storage object
+/// @param a is a std::array buffer
+/// @return the storage adapter
+template<class PodType, std::size_t Size>
+inline mutable_storage storage(std::array<PodType, Size>& a)
+{
+    uint32_t size = static_cast<uint32_t>(Size * sizeof(PodType));
+    uint8_t* data = reinterpret_cast<uint8_t*>(a.data());
+
+    return mutable_storage(data, size);
+}
+
+/// Creates a const storage object
+/// @param a is a std::array buffer
+/// @return the storage adapter
+template<class PodType, std::size_t Size>
+inline const_storage storage(const std::array<PodType, Size>& a)
+{
+    uint32_t size = static_cast<uint32_t>(Size * sizeof(PodType));
+    const uint8_t* data = reinterpret_cast<const uint8_t*>(a.data());
+
+    return const_storage(data, size);
+}
+
+/// We do not allow conversion of temporaries
+template<class PodType, std::size_t Size>
+const_storage storage(std::array<PodType, Size>&&) = delete;
 }
