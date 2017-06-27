@@ -6,6 +6,10 @@ every change, see the Git log.
 
 Latest
 ------
+* tbd
+
+3.1.0
+-----
 * Minor: Added helper for creating storage objects from ``std::array``\ s
 
 3.0.0
