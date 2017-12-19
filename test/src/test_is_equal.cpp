@@ -48,13 +48,3 @@ TEST(test_is_equal, different_size_same_content)
 
     EXPECT_FALSE(storage::is_equal(storage::storage(d1), storage::storage(d2)));
 }
-
-TEST(test_is_equal, change_conetent)
-{
-    std::vector<uint8_t> d1(10, 'a');
-    auto d2 = storage::storage(d1);
-    EXPECT_TRUE(storage::is_equal(storage::storage(d1), d2));
-    d2 += 2;
-
-    EXPECT_FALSE(storage::is_equal(storage::storage(d1), d2));
-}

@@ -16,12 +16,12 @@ namespace storage
 /// @return True if the two storage objects point to the same data
 inline bool is_same(const const_storage& a, const const_storage& b)
 {
-    if (a.m_size != b.m_size)
+    if (a.size() != b.size())
     {
         return false;
     }
 
     // They have the same size - do they point to the same data?
-    return a.m_data == b.m_data;
+    return a.data() == b.data();
 }
 }

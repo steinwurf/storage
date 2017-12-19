@@ -20,12 +20,6 @@ struct mutable_storage
     /// The iterator type
     using const_iterator = const mutable_storage*;
 
-    /// Create an empty storage object
-    mutable_storage() :
-        m_data(nullptr),
-        m_size(0)
-    { }
-
     /// Create an initialized mutable storage object
     /// @param size the size of the buffer in bytes
     /// @param data pointer to the storage buffer
@@ -34,7 +28,23 @@ struct mutable_storage
         m_size(size)
     {
         assert(m_data != nullptr);
-        assert(m_size > 0);
+        assert(m_size != 0);
+    }
+
+    /// Create a mutable storage object from a mutable storage
+    /// @param s the mutable storage object
+    mutable_storage(const mutable_storage& s) :
+        mutable_storage(s.m_data, s.m_size)
+    { }
+
+    /// Assigns and converts a mutable storage buffer
+    /// into a mutable storage buffer
+    /// @param s the mutable storage object
+    mutable_storage& operator=(const mutable_storage& s)
+    {
+        m_data = s.m_data;
+        m_size = s.m_size;
+        return *this;
     }
 
     /// @return iterator to the first element note in this
@@ -51,25 +61,19 @@ struct mutable_storage
         return this + 1;
     }
 
-    /// Offset the storage
-    /// @param offset The number of bytes to offset the storage with
-    mutable_storage& operator+=(uint32_t offset)
+    /// @return data pointer
+    uint8_t* data() const
     {
-        assert(offset <= m_size);
-        m_size -= offset;
-        m_data += offset;
-        return *this;
+        return m_data;
     }
 
-    /// Offset the storage
-    /// @param offset The number of bytes to offset the storage with
-    mutable_storage operator+(uint32_t offset)
+    /// @return size
+    uint32_t size() const
     {
-        assert(offset <= m_size);
-        mutable_storage storage(m_data + offset, m_size - offset);
-
-        return storage;
+        return m_size;
     }
+
+private:
 
     /// Pointer to the mutable buffer storage
     uint8_t* m_data;

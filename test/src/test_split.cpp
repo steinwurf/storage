@@ -23,6 +23,6 @@ TEST(test_split, api)
     EXPECT_EQ(storage_sequence.size(), 5U);
     for (uint32_t i = 0; i < storage_sequence.size(); ++i)
     {
-        EXPECT_EQ(storage_sequence[i].m_size, split);
+        EXPECT_EQ(storage_sequence[i].size(), split);
     }
 }

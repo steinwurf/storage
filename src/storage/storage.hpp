@@ -13,9 +13,12 @@
 #include "fill_zero.hpp"
 #include "is_equal.hpp"
 #include "is_same.hpp"
+#include "offset.hpp"
 #include "operator_equal.hpp"
 #include "size.hpp"
 #include "split.hpp"
+#include "slice.hpp"
+#include "shrink.hpp"
 
 #include <cstdint>
 #include <string>

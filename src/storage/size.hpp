@@ -6,6 +6,7 @@
 #pragma once
 
 #include <cstdint>
+#include <iterator>
 
 namespace storage
 {
@@ -19,9 +20,15 @@ inline uint32_t size(Iterator first, Iterator last)
     uint32_t size = 0;
     while (first != last)
     {
-        size += first->m_size;
+        size += first->size();
         ++first;
     }
     return size;
+}
+
+template<class Container>
+inline uint32_t size(const Container& container)
+{
+    return size(std::cbegin(container), std::cend(container));
 }
 }

@@ -16,7 +16,7 @@ namespace storage
 template<class ValueType>
 inline ValueType* cast(const mutable_storage& s)
 {
-    return reinterpret_cast<ValueType*>(s.m_data);
+    return reinterpret_cast<ValueType*>(s.data());
 }
 
 /// Casts the stored pointer to a different data type
@@ -25,6 +25,6 @@ inline ValueType* cast(const mutable_storage& s)
 template<class ValueType>
 inline const ValueType* cast(const const_storage& s)
 {
-    return reinterpret_cast<const ValueType*>(s.m_data);
+    return reinterpret_cast<const ValueType*>(s.data());
 }
 }

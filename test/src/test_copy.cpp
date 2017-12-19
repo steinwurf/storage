@@ -44,10 +44,5 @@ TEST(test_copy, not_same_size)
     storage::copy(storage::storage(d2), storage::storage(d1));
 
     EXPECT_FALSE(storage::is_equal(storage::storage(d1), storage::storage(d2)));
-    // Offset the first byte of d2, so they should be equal
-    storage::fill_zero(storage::storage(d2));
-    storage::copy(storage::storage(d2) + 1, storage::storage(d1));
-    EXPECT_TRUE(storage::is_equal(
-        storage::storage(d1), storage::storage(d2) + 1));
 }
 
