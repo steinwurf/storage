@@ -46,27 +46,27 @@ TEST(test_storage, test_vector_helper)
 }
 
 template<class PodType>
-static void test_buffer_helper(uint32_t vector_size)
+static void test_buffer_helper(uint32_t buffer_size)
 {
-    std::vector<PodType> v(vector_size);
+    std::vector<PodType> buffer(buffer_size);
 
-    PodType* v_data = &v[0];
-    uint32_t v_size = vector_size * sizeof(PodType);
+    PodType* data = buffer.data();
+    uint32_t size = buffer.size() * sizeof(PodType);
 
-    storage::const_storage cs = storage::storage(v_data, v_size);
-    EXPECT_EQ(cs.size(), v_size);
-    EXPECT_EQ(storage::cast<PodType>(cs), &v_data[0]);
+    storage::const_storage const_storage = storage::storage(data, size);
+    EXPECT_EQ(const_storage.size(), size);
+    EXPECT_EQ(storage::cast<PodType>(const_storage), &data[0]);
 
-    storage::mutable_storage ms = storage::storage(v_data, v_size);
-    EXPECT_EQ(ms.size(), v_size);
-    EXPECT_EQ(storage::cast<PodType>(ms), &v_data[0]);
+    storage::mutable_storage mutable_storage = storage::storage(data, size);
+    EXPECT_EQ(mutable_storage.size(), size);
+    EXPECT_EQ(storage::cast<PodType>(mutable_storage), &data[0]);
 
     // Check const
-    const PodType* v_data_const = v_data;
+    const PodType* const_data = data;
 
-    storage::const_storage const_cs = storage::storage(v_data_const, v_size);
-    EXPECT_EQ(const_cs.size(), v_size);
-    EXPECT_EQ(storage::cast<PodType>(const_cs), &v_data_const[0]);
+    storage::const_storage const_storage2 = storage::storage(const_data, size);
+    EXPECT_EQ(const_storage2.size(), size);
+    EXPECT_EQ(storage::cast<PodType>(const_storage2), &const_data[0]);
 }
 
 TEST(test_storage, test_buffer_helper)

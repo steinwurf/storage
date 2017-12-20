@@ -5,4 +5,20 @@
 
 #include <storage/cast.hpp>
 
-/// @file test_cast.cpp Tested in test_storage.cpp
+#include <storage/storage.hpp>
+
+#include <cstdint>
+
+#include <gtest/gtest.h>
+
+TEST(test_cast, api)
+{
+    std::vector<uint32_t> buffer = {1337, 110066};
+
+    uint32_t* data = buffer.data();
+    uint32_t size = buffer.size() * sizeof(uint32_t);
+
+    auto storage = storage::storage(data, size);
+    EXPECT_EQ(storage.size(), size);
+    EXPECT_EQ(storage::cast<uint32_t>(storage), &data[0]);
+}
