@@ -4,8 +4,8 @@ News for storage
 This file lists the major changes between versions. For a more detailed list of
 every change, see the Git log.
 
-Latest
-------
+4.0.0
+-----
 * Major: Removed `operator+=` and `operator+`, use `storage::offset` instead.
 * Major: Added `storage::offset`.
 * Major: Added `storage::shrink`.
