@@ -12,8 +12,8 @@ namespace storage
 /// @param a The first storage object
 /// @param b The second storage object
 /// @return True if the two storage objects point to the same data
-template<class Storage>
-inline bool is_same(const Storage& a, const Storage& b)
+template<class StorageA, class StorageB>
+inline bool is_same(const StorageA& a, const StorageB& b)
 {
     if (a.size() != b.size())
     {
