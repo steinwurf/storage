@@ -7,6 +7,7 @@
 
 #include <cstdint>
 #include <iterator>
+#include <vector>
 
 namespace storage
 {

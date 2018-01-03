@@ -8,6 +8,7 @@
 #include <storage/storage.hpp>
 
 #include <cstdint>
+#include <vector>
 
 #include <gtest/gtest.h>
 
