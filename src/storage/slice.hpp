@@ -5,6 +5,9 @@
 
 #pragma once
 
+#include "offset.hpp"
+#include "shrink.hpp"
+
 #include <cstdint>
 #include <cassert>
 
@@ -32,6 +35,7 @@ Storage slice(const Storage& storage, uint32_t offset, uint32_t size)
     assert(size > 0);
     assert(offset < storage.size());
     assert(size <= storage.size() - offset);
-    return Storage(storage.data() + offset, size);
+    auto tmp = storage::offset(storage, offset);
+    return shrink(tmp, size);
 }
 }
