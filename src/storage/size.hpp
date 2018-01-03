@@ -27,9 +27,9 @@ inline uint32_t size(Iterator first, Iterator last)
     return size;
 }
 
-template<class Container>
-inline uint32_t size(const Container& container)
+template<class Storage>
+inline uint32_t size(const Storage& storage)
 {
-    return size(std::cbegin(container), std::cend(container));
+    return size(storage.begin(), storage.end());
 }
 }

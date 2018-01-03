@@ -5,6 +5,7 @@
 
 #pragma once
 
+#include "const_storage.hpp"
 #include "is_equal.hpp"
 
 namespace storage

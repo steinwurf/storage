@@ -27,7 +27,8 @@ namespace storage
 template<class Storage>
 Storage shrink(const Storage& storage, uint32_t new_size)
 {
-    assert(storage.size() >= new_size);
+    assert(new_size > 0);
+    assert(new_size <= storage.size());
     return Storage(storage.data(), new_size);
 }
 }
