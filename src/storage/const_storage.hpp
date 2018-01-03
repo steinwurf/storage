@@ -22,25 +22,21 @@ struct const_storage
     /// The iterator type
     using const_iterator = const const_storage*;
 
-    /// Create an empty storage object
-    const_storage() :
-        m_data(nullptr),
-        m_size(0)
-    { }
-
     /// Create an initialized const storage object
     /// @param size the size of the buffer in bytes
     /// @param data pointer to the storage buffer
     const_storage(const uint8_t* data, uint32_t size) :
         m_data(data),
         m_size(size)
-    { }
+    {
+        assert(data != nullptr);
+        assert(size != 0);
+    }
 
     /// Create a const storage object from a mutable storage
     /// @param s the mutable storage object
     const_storage(const mutable_storage& s) :
-        m_data(s.m_data),
-        m_size(s.m_size)
+        const_storage(s.data(), s.size())
     { }
 
     /// Assigns and converts a mutable storage buffer
@@ -48,8 +44,8 @@ struct const_storage
     /// @param s the mutable storage object
     const_storage& operator=(const mutable_storage& s)
     {
-        m_data = s.m_data;
-        m_size = s.m_size;
+        m_data = s.data();
+        m_size = s.size();
         return *this;
     }
 
@@ -67,33 +63,24 @@ struct const_storage
         return this + 1;
     }
 
-    /// Offset the storage
-    /// @param offset The number of bytes to offset the storage with
-    const_storage& operator+=(uint32_t offset)
+    /// @return data pointer
+    const uint8_t* data() const
     {
-        assert(offset <= m_size);
-        m_size -= offset;
-        m_data += offset;
-        return *this;
+        return m_data;
     }
 
-    /// Offset the storage
-    /// @param offset The number of bytes to offset the storage with
-    const_storage operator+(uint32_t offset)
+    /// @return size
+    uint32_t size() const
     {
-        assert(offset <= m_size);
-        const_storage storage(m_data + offset, m_size - offset);
-
-        return storage;
+        return m_size;
     }
 
-public:
+private:
 
     /// Pointer to the non-mutable buffer storage
     const uint8_t* m_data;
 
-    /// The size of the mutable buffer
+    /// The size of the non-mutable buffer
     uint32_t m_size;
-
 };
 }

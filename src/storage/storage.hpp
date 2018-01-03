@@ -13,8 +13,11 @@
 #include "fill_zero.hpp"
 #include "is_equal.hpp"
 #include "is_same.hpp"
+#include "offset.hpp"
 #include "operator_equal.hpp"
+#include "shrink.hpp"
 #include "size.hpp"
+#include "slice.hpp"
 #include "split.hpp"
 
 #include <cstdint>

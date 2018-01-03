@@ -19,8 +19,8 @@ namespace storage
 template<class StorageType>
 std::vector<StorageType> split(const StorageType& storage, uint32_t split)
 {
-    auto remaining_size = storage.m_size;
-    auto data_offset = storage.m_data;
+    auto remaining_size = storage.size();
+    auto data_offset = storage.data();
 
     std::vector<StorageType> sequence;
 

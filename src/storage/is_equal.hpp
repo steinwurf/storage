@@ -5,8 +5,6 @@
 
 #pragma once
 
-#include "const_storage.hpp"
-
 #include <algorithm>
 
 namespace storage
@@ -21,24 +19,25 @@ namespace storage
 /// @param b The second storage object
 /// @return True if the storage objects contain the same data
 ///         otherwise false.
-inline bool is_equal(const const_storage& a, const const_storage& b)
+template<class Storage>
+inline bool is_equal(const Storage& a, const Storage& b)
 {
     // We cannot reuse is_same here since it does not tell use
     // which condition failed i.e. if is_same returns false. Then
     // we cannot just jump to a memory compare since it might be
     // because the two storage objects have different sizes.
-    if (a.m_size != b.m_size)
+    if (a.size() != b.size())
     {
         return false;
     }
 
     // They have the same size - do they point to the same data?
-    if (a.m_data == b.m_data)
+    if (a.data() == b.data())
     {
         return true;
     }
 
     // It is two different buffers - is the content equal?
-    return std::equal(a.m_data, a.m_data + a.m_size, b.m_data);
+    return std::equal(a.data(), a.data() + a.size(), b.data());
 }
 }

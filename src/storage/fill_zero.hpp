@@ -15,6 +15,6 @@ namespace storage
 /// @param storage the mutable storage buffer
 inline void fill_zero(const mutable_storage& storage)
 {
-    std::fill_n(storage.m_data, storage.m_size, 0);
+    std::fill_n(storage.data(), storage.size(), 0);
 }
 }
