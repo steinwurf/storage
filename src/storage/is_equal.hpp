@@ -5,8 +5,6 @@
 
 #pragma once
 
-#include "const_storage.hpp"
-
 #include <algorithm>
 
 namespace storage
@@ -21,7 +19,8 @@ namespace storage
 /// @param b The second storage object
 /// @return True if the storage objects contain the same data
 ///         otherwise false.
-inline bool is_equal(const const_storage& a, const const_storage& b)
+template<class Storage>
+inline bool is_equal(const Storage& a, const Storage& b)
 {
     // We cannot reuse is_same here since it does not tell use
     // which condition failed i.e. if is_same returns false. Then
