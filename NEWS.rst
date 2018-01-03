@@ -6,7 +6,15 @@ every change, see the Git log.
 
 Latest
 ------
-* tbd
+* Major: Removed `operator+=` and `operator+`, use `storage::offset` instead.
+* Major: Added `storage::offset`.
+* Major: Added `storage::shrink`.
+* Major: Added `storage::slice`.
+* Major: `storage.m_data` and `storage.m_size` no private. They can be accessed
+  with `data()` and `size()`.
+* Major: storage object may no longer have data pointers to null and a size of
+  0. This also means the default constructor is gone. Use thirdparty
+  construct like `boost::optional` instead.
 
 3.1.0
 -----
