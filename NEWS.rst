@@ -4,6 +4,11 @@ News for storage
 This file lists the major changes between versions. For a more detailed list of
 every change, see the Git log.
 
+4.0.1
+-----
+* Patch: `is_equal` and `is_same` now allows paramter types that differs so that
+  `const_storages` and `mutable_storages` can be compared.
+
 4.0.0
 -----
 * Major: Removed `operator+=` and `operator+`, use `storage::offset` instead.
