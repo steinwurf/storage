@@ -5,8 +5,6 @@
 
 #pragma once
 
-#include "const_storage.hpp"
-
 namespace storage
 {
 /// Compares two storage objects checks whether they refer to the
@@ -14,7 +12,8 @@ namespace storage
 /// @param a The first storage object
 /// @param b The second storage object
 /// @return True if the two storage objects point to the same data
-inline bool is_same(const const_storage& a, const const_storage& b)
+template<class Storage>
+inline bool is_same(const Storage& a, const Storage& b)
 {
     if (a.size() != b.size())
     {
