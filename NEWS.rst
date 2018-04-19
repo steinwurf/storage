@@ -6,7 +6,7 @@ every change, see the Git log.
 
 4.0.1
 -----
-* Patch: `is_equal` and `is_same` now allows paramter types that differs so that
+* Patch: `is_equal` and `is_same` now allows parameter types that differs so that
   `const_storages` and `mutable_storages` can be compared.
 
 4.0.0
@@ -18,7 +18,7 @@ every change, see the Git log.
 * Major: `storage.m_data` and `storage.m_size` no private. They can be accessed
   with `data()` and `size()`.
 * Major: storage object may no longer have data pointers to null and a size of
-  0. This also means the default constructor is gone. Use thirdparty
+  0. This also means the default constructor is gone. Use third-party
   construct like `boost::optional` instead.
 
 3.1.0
