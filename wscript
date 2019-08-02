@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 APPNAME = 'storage'
-VERSION = '4.0.1'
+VERSION = '4.1.0'
 
 
 def build(bld):
