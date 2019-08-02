@@ -4,6 +4,10 @@ News for storage
 This file lists the major changes between versions. For a more detailed list of
 every change, see the Git log.
 
+Latest
+------
+* Minor: Added cmake.
+
 4.0.1
 -----
 * Patch: `is_equal` and `is_same` now allows parameter types that differs so that
