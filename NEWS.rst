@@ -6,6 +6,10 @@ every change, see the Git log.
 
 Latest
 ------
+* tbd
+
+5.0.0
+-----
 * Major: Use `uint64_t` for size rather than `uint32_t`.
 
 4.2.0
