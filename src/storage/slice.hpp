@@ -30,7 +30,7 @@ namespace storage
 ///               must be smaller than the offset storage object's size.
 /// @return A new, sliced storage object.
 template<class Storage>
-Storage slice(const Storage& storage, uint32_t offset, uint32_t size)
+Storage slice(const Storage& storage, uint64_t offset, uint64_t size)
 {
     assert(size > 0);
     assert(offset < storage.size());

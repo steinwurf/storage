@@ -17,7 +17,7 @@ TEST(test_shrink, api)
     auto storage = storage::storage(data);
     EXPECT_EQ(data.size(), storage.size());
 
-    uint32_t new_size = 4;
+    uint64_t new_size = 4;
     storage = storage::shrink(storage, new_size);
     EXPECT_EQ(new_size, storage.size());
 }

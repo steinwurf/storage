@@ -17,7 +17,7 @@ namespace storage
 /// @param storage The storage to split
 /// @param split The number of bytes to split the storage in.
 template<class StorageType>
-std::vector<StorageType> split(const StorageType& storage, uint32_t split)
+std::vector<StorageType> split(const StorageType& storage, uint64_t split)
 {
     auto remaining_size = storage.size();
     auto data_offset = storage.data();
@@ -26,7 +26,7 @@ std::vector<StorageType> split(const StorageType& storage, uint32_t split)
 
     while (remaining_size > 0)
     {
-        uint32_t next_size = std::min(remaining_size, split);
+        uint64_t next_size = std::min(remaining_size, split);
 
         sequence.push_back(StorageType(data_offset, next_size));
 

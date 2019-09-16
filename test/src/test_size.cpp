@@ -14,7 +14,7 @@
 
 TEST(test_size, api)
 {
-    uint32_t size = 500;
+    uint64_t size = 500;
     std::vector<uint8_t> v(size);
 
     auto storage = storage::storage(v);
@@ -24,7 +24,7 @@ TEST(test_size, api)
 
 TEST(test_size_container, api)
 {
-    uint32_t size = 500;
+    uint64_t size = 500;
     std::vector<uint8_t> v(size);
 
     auto storage = storage::storage(v);

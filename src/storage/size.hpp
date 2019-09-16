@@ -16,9 +16,9 @@ namespace storage
 /// @param last iterator to the last storage adapter
 /// @return the size in bytes of the storage adapters
 template<class Iterator>
-inline uint32_t size(Iterator first, Iterator last)
+inline uint64_t size(Iterator first, Iterator last)
 {
-    uint32_t size = 0;
+    uint64_t size = 0;
     while (first != last)
     {
         size += first->size();
@@ -28,7 +28,7 @@ inline uint32_t size(Iterator first, Iterator last)
 }
 
 template<class Storage>
-inline uint32_t size(const Storage& storage)
+inline uint64_t size(const Storage& storage)
 {
     return size(storage.begin(), storage.end());
 }

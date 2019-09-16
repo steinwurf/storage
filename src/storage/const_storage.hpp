@@ -25,7 +25,7 @@ struct const_storage
     /// Create an initialized const storage object
     /// @param size the size of the buffer in bytes
     /// @param data pointer to the storage buffer
-    const_storage(const uint8_t* data, uint32_t size) :
+    const_storage(const uint8_t* data, uint64_t size) :
         m_data(data),
         m_size(size)
     {
@@ -70,7 +70,7 @@ struct const_storage
     }
 
     /// @return size
-    uint32_t size() const
+    uint64_t size() const
     {
         return m_size;
     }
@@ -81,6 +81,6 @@ private:
     const uint8_t* m_data;
 
     /// The size of the non-mutable buffer
-    uint32_t m_size;
+    uint64_t m_size;
 };
 }

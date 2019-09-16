@@ -15,7 +15,7 @@
 
 TEST(test_mutable_storage, test_mutable_to_const_conversion)
 {
-    uint32_t size = 500;
+    uint64_t size = 500;
     std::vector<uint8_t> v(size);
 
     storage::mutable_storage ms = storage::storage(v);

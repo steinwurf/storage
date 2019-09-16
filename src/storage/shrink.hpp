@@ -25,7 +25,7 @@ namespace storage
 ///               must be smaller than the storage object's size.
 /// @return A new, shrunk storage object.
 template<class Storage>
-Storage shrink(const Storage& storage, uint32_t new_size)
+Storage shrink(const Storage& storage, uint64_t new_size)
 {
     assert(new_size > 0);
     assert(new_size <= storage.size());
