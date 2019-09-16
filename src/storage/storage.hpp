@@ -31,7 +31,7 @@ namespace storage
 /// @param data pointer to the data buffer
 /// @param size_in_bytes the size of data buffer in bytes
 /// @return the storage adapter
-inline mutable_storage storage(void* data, uint32_t size_in_bytes)
+inline mutable_storage storage(void* data, uint64_t size_in_bytes)
 {
     uint8_t* data_ptr = reinterpret_cast<uint8_t*>(data);
     return mutable_storage(data_ptr, size_in_bytes);
@@ -41,7 +41,7 @@ inline mutable_storage storage(void* data, uint32_t size_in_bytes)
 /// @param data pointer to the data buffer
 /// @param size_in_bytes the size of data buffer in bytes
 /// @return the storage adapter
-inline const_storage storage(const void* data, uint32_t size_in_bytes)
+inline const_storage storage(const void* data, uint64_t size_in_bytes)
 {
     const uint8_t* data_ptr = reinterpret_cast<const uint8_t*>(data);
     return const_storage(data_ptr, size_in_bytes);
@@ -53,7 +53,7 @@ inline const_storage storage(const void* data, uint32_t size_in_bytes)
 template<class PodType, class Allocator>
 inline mutable_storage storage(std::vector<PodType, Allocator>& v)
 {
-    uint32_t size = static_cast<uint32_t>(v.size() * sizeof(PodType));
+    uint64_t size = static_cast<uint64_t>(v.size() * sizeof(PodType));
     uint8_t* data = reinterpret_cast<uint8_t*>(v.data());
 
     return mutable_storage(data, size);
@@ -65,7 +65,7 @@ inline mutable_storage storage(std::vector<PodType, Allocator>& v)
 template<class PodType, class Allocator>
 inline const_storage storage(const std::vector<PodType, Allocator>& v)
 {
-    uint32_t size = static_cast<uint32_t>(v.size() * sizeof(PodType));
+    uint64_t size = static_cast<uint64_t>(v.size() * sizeof(PodType));
     const uint8_t* data = reinterpret_cast<const uint8_t*>(v.data());
 
     return const_storage(data, size);
@@ -80,7 +80,7 @@ const_storage storage(std::vector<PodType, Allocator>&&) = delete;
 /// @return the storage adapter
 inline mutable_storage storage(std::string& str)
 {
-    uint32_t size = static_cast<uint32_t>(str.size());
+    uint64_t size = static_cast<uint64_t>(str.size());
     uint8_t* data = reinterpret_cast<uint8_t*>(&str[0]);
 
     return mutable_storage(data, size);
@@ -91,7 +91,7 @@ inline mutable_storage storage(std::string& str)
 /// @return the storage adapter
 inline const_storage storage(const std::string& str)
 {
-    uint32_t size = static_cast<uint32_t>(str.size());
+    uint64_t size = static_cast<uint64_t>(str.size());
     const uint8_t* data = reinterpret_cast<const uint8_t*>(str.data());
 
     return const_storage(data, size);
@@ -106,7 +106,7 @@ const_storage storage(std::string&&) = delete;
 template<class PodType, std::size_t Size>
 inline mutable_storage storage(std::array<PodType, Size>& a)
 {
-    uint32_t size = static_cast<uint32_t>(Size * sizeof(PodType));
+    uint64_t size = static_cast<uint64_t>(Size * sizeof(PodType));
     uint8_t* data = reinterpret_cast<uint8_t*>(a.data());
 
     return mutable_storage(data, size);
@@ -118,7 +118,7 @@ inline mutable_storage storage(std::array<PodType, Size>& a)
 template<class PodType, std::size_t Size>
 inline const_storage storage(const std::array<PodType, Size>& a)
 {
-    uint32_t size = static_cast<uint32_t>(Size * sizeof(PodType));
+    uint64_t size = static_cast<uint64_t>(Size * sizeof(PodType));
     const uint8_t* data = reinterpret_cast<const uint8_t*>(a.data());
 
     return const_storage(data, size);

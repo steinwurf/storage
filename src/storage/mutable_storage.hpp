@@ -23,7 +23,7 @@ struct mutable_storage
     /// Create an initialized mutable storage object
     /// @param size the size of the buffer in bytes
     /// @param data pointer to the storage buffer
-    mutable_storage(uint8_t* data, uint32_t size) :
+    mutable_storage(uint8_t* data, uint64_t size) :
         m_data(data),
         m_size(size)
     {
@@ -68,7 +68,7 @@ struct mutable_storage
     }
 
     /// @return size
-    uint32_t size() const
+    uint64_t size() const
     {
         return m_size;
     }
@@ -79,6 +79,6 @@ private:
     uint8_t* m_data;
 
     /// The size of the mutable buffer
-    uint32_t m_size;
+    uint64_t m_size;
 };
 }

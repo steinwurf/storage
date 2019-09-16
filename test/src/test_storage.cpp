@@ -13,7 +13,7 @@
 #include <gtest/gtest.h>
 
 template<class PodType>
-static void test_vector_helper(uint32_t vector_size)
+static void test_vector_helper(uint64_t vector_size)
 {
     std::vector<PodType> v(vector_size);
 
@@ -35,7 +35,7 @@ static void test_vector_helper(uint32_t vector_size)
 
 TEST(test_storage, test_vector_helper)
 {
-    uint32_t size = rand() % 100000;
+    uint64_t size = rand() % 100000;
     test_vector_helper<char>(size);
     test_vector_helper<short>(size);
     test_vector_helper<int>(size);
@@ -46,12 +46,12 @@ TEST(test_storage, test_vector_helper)
 }
 
 template<class PodType>
-static void test_buffer_helper(uint32_t buffer_size)
+static void test_buffer_helper(uint64_t buffer_size)
 {
     std::vector<PodType> buffer(buffer_size);
 
     PodType* data = buffer.data();
-    uint32_t size = buffer.size() * sizeof(PodType);
+    uint64_t size = buffer.size() * sizeof(PodType);
 
     storage::const_storage const_storage = storage::storage(data, size);
     EXPECT_EQ(const_storage.size(), size);
@@ -71,7 +71,7 @@ static void test_buffer_helper(uint32_t buffer_size)
 
 TEST(test_storage, test_buffer_helper)
 {
-    uint32_t size = rand() % 100000;
+    uint64_t size = rand() % 100000;
     test_buffer_helper<char>(size);
     test_buffer_helper<short>(size);
     test_buffer_helper<int>(size);

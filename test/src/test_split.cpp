@@ -13,15 +13,15 @@
 
 TEST(test_split, api)
 {
-    uint32_t size = 550;
-    uint32_t split = 100;
+    uint64_t size = 550;
+    uint64_t split = 100;
     std::vector<uint8_t> v(size);
 
     auto storage = storage::storage(v);
     auto storage_sequence = storage::split(storage, split);
 
     EXPECT_EQ(6U, storage_sequence.size());
-    for (uint32_t i = 0; i < storage_sequence.size() - 1; ++i)
+    for (uint64_t i = 0; i < storage_sequence.size() - 1; ++i)
     {
         EXPECT_EQ(split, storage_sequence[i].size());
     }

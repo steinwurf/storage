@@ -25,7 +25,7 @@ namespace storage
 ///               must be smaller than the storage object's size.
 /// @return A new, offset storage object.
 template<class Storage>
-Storage offset(const Storage& storage, uint32_t offset)
+Storage offset(const Storage& storage, uint64_t offset)
 {
     assert(storage.size() > offset);
     return Storage(storage.data() + offset, storage.size() - offset);

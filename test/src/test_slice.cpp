@@ -17,8 +17,8 @@ TEST(test_slice, api)
     auto storage = storage::storage(data);
     EXPECT_EQ(data.size(), storage.size());
 
-    uint32_t offset = 4;
-    uint32_t new_size = 4;
+    uint64_t offset = 4;
+    uint64_t new_size = 4;
     storage = storage::slice(storage, offset, new_size);
     std::vector<uint8_t> new_data { 4, 5, 6, 7 };
     auto expected_storage = storage::storage(new_data);
