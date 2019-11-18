@@ -6,7 +6,7 @@ every change, see the Git log.
 
 Latest
 ------
-* tbd
+* Minor: Lower CMake version requirement.
 
 5.0.0
 -----
