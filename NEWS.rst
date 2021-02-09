@@ -6,7 +6,7 @@ every change, see the Git log.
 
 Latest
 ------
-* tbd
+* Minor: Minor changes to CMakeLists.txt.
 
 5.2.0
 -----
