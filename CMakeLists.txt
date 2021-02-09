@@ -1,11 +1,15 @@
-cmake_minimum_required (VERSION 3.10)
+cmake_minimum_required(VERSION 3.12)
 project(storage)
 
-file(GLOB storage_headers ./src/storage/*.hpp)
-
+# Define library
 add_library(storage INTERFACE)
+target_compile_features(storage INTERFACE cxx_std_14)
+target_include_directories(storage INTERFACE src/)
 add_library(steinwurf::storage ALIAS storage)
 
-target_include_directories(storage INTERFACE src/)
-
-install(FILES ${storage_headers} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/storage)
+# Install headers
+install(
+  DIRECTORY ./src/storage
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+  FILES_MATCHING
+  PATTERN *.hpp)
